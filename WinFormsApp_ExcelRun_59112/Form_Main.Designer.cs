@@ -170,6 +170,7 @@ namespace WinFormsApp_ExcelRun_59112
             // 
             this.textBox_ResultFormula.Location = new System.Drawing.Point(532, 71);
             this.textBox_ResultFormula.Name = "textBox_ResultFormula";
+            this.textBox_ResultFormula.ReadOnly = true;
             this.textBox_ResultFormula.Size = new System.Drawing.Size(100, 23);
             this.textBox_ResultFormula.TabIndex = 13;
             // 
@@ -186,6 +187,7 @@ namespace WinFormsApp_ExcelRun_59112
             // 
             this.textBox_ResultData.Location = new System.Drawing.Point(532, 147);
             this.textBox_ResultData.Name = "textBox_ResultData";
+            this.textBox_ResultData.ReadOnly = true;
             this.textBox_ResultData.Size = new System.Drawing.Size(100, 23);
             this.textBox_ResultData.TabIndex = 15;
             // 
@@ -267,6 +269,8 @@ namespace WinFormsApp_ExcelRun_59112
             this.Controls.Add(this.label1);
             this.Name = "form_Main";
             this.Text = "Программа для расчёта формул Excel";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_Main_FormClosing);
+            this.Load += new System.EventHandler(this.form_Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

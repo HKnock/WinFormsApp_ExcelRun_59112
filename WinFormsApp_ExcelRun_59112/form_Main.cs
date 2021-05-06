@@ -14,6 +14,9 @@ namespace WinFormsApp_ExcelRun_59112
     public partial class form_Main : Form
     {
         private Excel _excel = null;
+        private static int _num = 59112;
+        private int _limit = _num / 1000 + _num % 100;
+        private int _i_Add = _num % 10 + 1;
         public form_Main()
         {
             InitializeComponent();
@@ -71,6 +74,7 @@ namespace WinFormsApp_ExcelRun_59112
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
+            _excel.Excel_Close();
             Close();
         }
 
@@ -79,9 +83,24 @@ namespace WinFormsApp_ExcelRun_59112
             _excel.Excel_Close();
         }
 
+        private void form_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _excel.Excel_Close();
+        }
+
         private void button_HideExcel_Click(object sender, EventArgs e)
         {
             _excel.Excel_Visible(false);
+        }
+
+        private void form_Main_Load(object sender, EventArgs e)
+        {
+            int j = 1;
+            for (int i = _num % 100; i < _limit; i += _i_Add)
+            {
+                listBox_InputData.Items.Add(i);
+                listBox_InputCell.Items.Add("A" + j++);
+            }
         }
     }
 }
